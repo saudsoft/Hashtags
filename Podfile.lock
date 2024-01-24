@@ -1,0 +1,74 @@
+PODS:
+  - Google-Mobile-Ads-SDK (7.60.0):
+    - GoogleAppMeasurement (~> 6.0)
+  - GoogleAppMeasurement (6.6.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (~> 1.30905.0)
+  - GoogleUtilities/AppDelegateSwizzler (6.6.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.6.0):
+    - PromisesObjC (~> 1.2)
+  - GoogleUtilities/Logger (6.6.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (6.6.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (6.6.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.6.0)"
+  - GoogleUtilities/Reachability (6.6.0):
+    - GoogleUtilities/Logger
+  - IAPurchaseManager (0.2.0)
+  - iProgressHUD (1.1.1)
+  - nanopb (1.30905.0):
+    - nanopb/decode (= 1.30905.0)
+    - nanopb/encode (= 1.30905.0)
+  - nanopb/decode (1.30905.0)
+  - nanopb/encode (1.30905.0)
+  - PKHUD (5.3.0)
+  - PromisesObjC (1.2.8)
+  - SideMenu (6.4.8)
+  - TagListView (1.4.0)
+
+DEPENDENCIES:
+  - Google-Mobile-Ads-SDK
+  - IAPurchaseManager
+  - iProgressHUD
+  - PKHUD
+  - SideMenu
+  - TagListView (~> 1.0)
+
+SPEC REPOS:
+  trunk:
+    - Google-Mobile-Ads-SDK
+    - GoogleAppMeasurement
+    - GoogleUtilities
+    - IAPurchaseManager
+    - iProgressHUD
+    - nanopb
+    - PKHUD
+    - PromisesObjC
+    - SideMenu
+    - TagListView
+
+SPEC CHECKSUMS:
+  Google-Mobile-Ads-SDK: d70efb31e7ea19fe99d466dc5d4788966b6914f8
+  GoogleAppMeasurement: 67458367830514fb20fd9e233496f1eef9d90185
+  GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
+  IAPurchaseManager: 2e4678d9dc157627e1f2c4c6e13fd9559f27f3c0
+  iProgressHUD: caa742128253c97f2c2e1ec59e2bbe6cf689df6a
+  nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
+  PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  SideMenu: 4a891be552d30bb6fa87ad404d62e485f8450c34
+  TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
+
+PODFILE CHECKSUM: 1792033f4dbb5daaa1f13545319307b84cf41272
+
+COCOAPODS: 1.14.3
