@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/cocoapods,xcode,macos,swiftpackagemanager
-# Edit at https://www.toptal.com/developers/gitignore?templates=cocoapods,xcode,macos,swiftpackagemanager
+# Created by https://www.toptal.com/developers/gitignore/api/macos,xcode,cocoapods
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos,xcode,cocoapods
 
 ### CocoaPods ###
 ## CocoaPods GitIgnore Template
@@ -42,14 +42,6 @@ Temporary Items
 # iCloud generated files
 *.icloud
 
-### SwiftPackageManager ###
-Packages
-.build/
-xcuserdata
-DerivedData/
-*.xcodeproj
-
-
 ### Xcode ###
 ## User settings
 xcuserdata/
@@ -67,4 +59,4 @@ xcuserdata/
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 
-# End of https://www.toptal.com/developers/gitignore/api/cocoapods,xcode,macos,swiftpackagemanager
+# End of https://www.toptal.com/developers/gitignore/api/macos,xcode,cocoapods
