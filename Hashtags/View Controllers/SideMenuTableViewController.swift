@@ -13,7 +13,8 @@ class SideMenuTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        UIView.appearance().semanticContentAttribute = .forceLeftToRight
+
         // refresh cell blur effect in case it changed
         tableView.reloadData()
         

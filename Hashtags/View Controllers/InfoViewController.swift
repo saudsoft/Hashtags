@@ -77,6 +77,10 @@ class InfoViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        UIView.appearance().semanticContentAttribute = .forceLeftToRight
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

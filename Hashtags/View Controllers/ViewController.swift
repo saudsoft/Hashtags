@@ -28,7 +28,8 @@ class ViewController: UIViewController, TagListViewDelegate {
     @IBOutlet weak var hashtagListView: TagListView!
     @IBOutlet weak var superAdView: UIView!
     @IBOutlet weak var stackView: UIStackView!
-//    @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet weak var selectedCount: UILabel!
+    @IBOutlet weak var totalCount: UILabel!
     
     @IBAction func editHashtag(_ sender: Any) {
         if !IAPManager.shared.isProductPurchased(productId: productID) {
@@ -50,7 +51,11 @@ class ViewController: UIViewController, TagListViewDelegate {
         for tag in hashtagListView.tagViews {
             tag.isSelected = true
         }
-        SKStoreReviewController.requestReview()
+        
+        countSelected()
+        
+        // Show app review modal
+//        SKStoreReviewController.requestReview()
     }
     
     @IBAction func copyHashtags(_ sender: Any) {
@@ -74,6 +79,22 @@ class ViewController: UIViewController, TagListViewDelegate {
         for tag in hashtagListView.selectedTags() {
             tag.isSelected = false
         }
+        countSelected()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if UserDefaults.standard.integer(forKey: "tagViewFontSize") == 0 {
+            print("ZERO")
+            UserDefaults.standard.set(16, forKey: "tagViewFontSize")
+        }
+        
+        tagViewFontSize = CGFloat(UserDefaults.standard.integer(forKey: "tagViewFontSize"))
+        
+        UIView.appearance().semanticContentAttribute = .forceLeftToRight
+        updateView()
+        if IAPManager.shared.isProductPurchased(productId: productID) {
+            self.removeAdView()
+        }
     }
     
     override func viewDidLoad() {
@@ -88,7 +109,9 @@ class ViewController: UIViewController, TagListViewDelegate {
         
         //Looks for single or multiple taps.
         hashtagListView.delegate = self
+        countSelected()
         
+        setViewShadow(forView: hashtagListView)
 //        updateView()
     }
     
@@ -109,7 +132,8 @@ class ViewController: UIViewController, TagListViewDelegate {
         getHashData()
         self.hashtagListView.removeAllTags()
         self.hashtagListView.addTags(hashtagsArray)
-        self.hashtagListView.fontSize(ofSize: 20)
+        self.hashtagListView.fontSize(ofSize: tagViewFontSize)
+        countSelected()
         DispatchQueue.main.async {
             if !IAPManager.shared.isProductPurchased(productId: productID) {
                 print("In prepare for interstitial ad")
@@ -118,6 +142,29 @@ class ViewController: UIViewController, TagListViewDelegate {
                 self.removeAdView()
             }
         }
+    }
+    
+    func countSelected() {
+        var counter = 0
+        var total = 0
+        for tag in hashtagListView.tagViews {
+            if tag.isSelected {
+                counter += 1
+            }
+            total += 1
+        }
+        
+        selectedCount.text = "\(counter)"
+        totalCount.text = "\(total)"
+    }
+    
+    func setViewShadow(forView yourView: UIView) {
+//        yourView.layer.shadowColor = UIColor.black.cgColor
+//        yourView.layer.shadowOpacity = 1
+//        yourView.layer.shadowOffset = .zero
+//        yourView.layer.shadowRadius = 10
+//        yourView.layer.shadowPath = UIBezierPath(rect: yourView.bounds).cgPath
+//        yourView.layer.shouldRasterize = true
     }
     
     func removeAdView() {
@@ -131,22 +178,16 @@ class ViewController: UIViewController, TagListViewDelegate {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        updateView()
-        if IAPManager.shared.isProductPurchased(productId: productID) {
-//            print("Hide adView")
-            self.removeAdView()
-        }
-    }
-    
     // MARK: TagListViewDelegate
     func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
 //        print("Tag pressed: \(title)")
         tagView.isSelected = !tagView.isSelected
+        countSelected()
     }
     
     func tagRemoveButtonPressed(_ title: String, tagView: TagView, sender: TagListView) {
 //        print("Tag Remove pressed: \(title), \(sender)")
         sender.removeTagView(tagView)
+        countSelected()
     }
 }

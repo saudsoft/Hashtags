@@ -30,6 +30,11 @@ let productID = "hashtags_ads_remove"
 
 var hashtagsArray = [""]
 
+// Settings
+var tagViewFontSize: CGFloat! = nil
+
+
+
 func getHashData() {
     guard let userHashtag = UserDefaults.standard.value(forKey: "hashtags") else {
 //        print("using default hashtags")

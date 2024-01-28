@@ -84,12 +84,16 @@ class HashtagsEditViewController: UIViewController, TagListViewDelegate, UITextF
         hashtagVeiw.addTags(hashtagsArray)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        UIView.appearance().semanticContentAttribute = .forceLeftToRight
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         hashtagVeiw.delegate = self
         hashtagString.delegate = self
-        hashtagVeiw.fontSize(ofSize: 20)
+        hashtagVeiw.fontSize(ofSize: tagViewFontSize)
 
         loadHashtags()
         

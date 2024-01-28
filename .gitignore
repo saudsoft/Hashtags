@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/macos,xcode,cocoapods
-# Edit at https://www.toptal.com/developers/gitignore?templates=macos,xcode,cocoapods
+# Created by https://www.toptal.com/developers/gitignore/api/macos,cocoapods,xcode
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos,cocoapods,xcode
 
 ### CocoaPods ###
 ## CocoaPods GitIgnore Template
@@ -59,4 +59,4 @@ xcuserdata/
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 
-# End of https://www.toptal.com/developers/gitignore/api/macos,xcode,cocoapods
+# End of https://www.toptal.com/developers/gitignore/api/macos,cocoapods,xcode

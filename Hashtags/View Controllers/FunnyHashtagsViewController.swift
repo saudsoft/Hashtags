@@ -12,6 +12,10 @@ import TagListView
 class FunnyHashtagsViewController: UIViewController {
     @IBOutlet weak var hashtagListView: TagListView!
 
+    override func viewWillAppear(_ animated: Bool) {
+        UIView.appearance().semanticContentAttribute = .forceLeftToRight
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateView()
@@ -20,8 +24,9 @@ class FunnyHashtagsViewController: UIViewController {
     
     func updateView() {
         getHashData()
-        self.hashtagListView.removeAllTags()
-        self.hashtagListView.addTags(hashtagsArray)
+        hashtagListView.removeAllTags()
+        hashtagListView.addTags(hashtagsArray)
+        hashtagListView.fontSize(ofSize: tagViewFontSize)
 //        DispatchQueue.main.async {
 //            if !IAPManager.shared.isProductPurchased(productId: productID) {
 //                print("In prepare for interstitial ad")
